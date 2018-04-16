@@ -1,0 +1,1 @@
+tail -f -n 20 /JKJN/RunLogGun$1.log

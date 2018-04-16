@@ -1,0 +1,5 @@
+#!/bin/sh
+LOGDIR=/JKJN/log
+cd $LOGDIR
+datestr=`date +%Y%m%d`
+tar -czf RunLog$datestr.tar.gz *.log && rm -f *.log

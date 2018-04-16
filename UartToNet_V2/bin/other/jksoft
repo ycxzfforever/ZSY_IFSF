@@ -1,0 +1,19 @@
+#!/bin/sh
+case "$1" in
+        start|restart)
+                ps | grep 'UartToNet'|grep -v 'grep'|awk '{print$1}'|xargs kill -9
+		num=`ps | grep 'jkmonitor.sh'|grep -v 'grep'|wc -l`
+		if [ $num -eq 0 ];
+		then
+			jkmonitor.sh&
+		fi
+                ;;
+        stop)
+                ps | grep 'jkmonitor.sh'|grep -v 'grep'|awk '{print$1}'|xargs kill -9
+                ps | grep 'UartToNet'|grep -v 'grep'|awk '{print$1}'|xargs kill -9
+                ;;
+        *)
+                echo "Usage: jksoft  {start|stop|restart}" >&2
+                exit 1
+                ;;
+esac

@@ -1,0 +1,8 @@
+#!/bin/sh 
+count=30
+num=`ls -t /JKJN/log/*.tar.gz|wc -l`;
+if [ $num -gt $count ];
+then
+    num=`expr $num - $count`
+    ls -t /JKJN/log/*.tar.gz|tail -$num|xargs rm
+fi

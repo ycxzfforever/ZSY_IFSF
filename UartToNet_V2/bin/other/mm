@@ -1,0 +1,2 @@
+mount -t nfs -o nolock 192.168.3.191:/ /share
+ 
